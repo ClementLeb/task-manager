@@ -84,15 +84,30 @@ def main():
         elif choice == "2":
             list_tasks()
         elif choice == "3":
-            index = int(input("Numéro de la tâche à compléter : ")) - 1  # Convertit en index
-            complete_task(index)
+            user_input = input("Numéro de la tâche à compléter :").strip()
+
+            if not user_input.isdigit() :
+                print("Erreur : Veuillez entrer un numéro valide.")
+            else:
+                index = int(user_input) - 1  # Convertit en index
+                complete_task(index)
         elif choice == "4":
-            index = int(input("Numéro de la tâche à supprimer : ")) - 1  # Convertit en index
-            delete_task(index)
+            user_input = input("Numéro de la tâche à supprimer : ").strip()
+
+            if not user_input.isdigit() :
+                print("Erreur : Veuillez entrer un numéro valide.")
+            else:
+                index = int(user_input) -1
+                delete_task(index)
         elif choice == "5":
-            index = int(input("Numéro de la tâche à modifier : ")) - 1  # Convertit en index
-            new_description = input("Nouvelle description : ")  # Demande la nouvelle tâche
-            modify_task(index, new_description)  # Appelle la fonction
+            user_input = input("Numéro de la tâche à modifier : ").strip()
+
+            if not user_input.isdigit() :
+                print("Erreur : Veuillez entrer un nombre valide.")
+            else:
+                index = int(user_input) -1
+                new_description = input("Nouvelle description : ")
+                modify_task(index, new_description)
         elif choice == "6":
             print("Fermeture du gestionnaire de tâches.")
             break
